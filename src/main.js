@@ -1,4 +1,5 @@
-import { demo } from './exampleModule';
+
+import { toggleDubs } from './Remove Dubs';
 
 console.log('Tampermonkey Script Started (using webpack)');
-demo('calling demo function from main.js');
+toggleDubs();

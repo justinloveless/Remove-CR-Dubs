@@ -1,12 +1,15 @@
 {
-    "name": "My Userscript",
-    "description": "A cool userscript",
-    "author": "Your Name",
+    "name": "Remove Dubs",
+    "namespace": "http://tampermonkey.net/",
+    "description": "Removes dubs from crunchyroll calendar",
+    "updateURL": "https://raw.githubusercontent.com/justinloveless/Remove-CR-Dubs/dist/script.user.js",
+    "author": "Justin Loveless",
     "match": [
-        "https://example.com/*"
+        "https://www.crunchyroll.com/simulcastcalendar*"
     ],
     "grant": [
         "GM_getValue",
         "GM_setValue"
-    ]
+    ],
+    "icon": "https://www.google.com/s2/favicons?sz=64&domain=crunchyroll.com"
 }
