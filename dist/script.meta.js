@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Remove Dubs
 // @description Removes dubs from crunchyroll calendar
-// @version 1.0.2
+// @version 1.0.3
 // @author Justin Loveless
 // @match https://www.crunchyroll.com/simulcastcalendar*
 // @grant GM_getValue

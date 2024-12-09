@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Remove Dubs
 // @description Removes dubs from crunchyroll calendar
-// @version 1.0.2
+// @version 1.0.3
 // @author Justin Loveless
 // @match https://www.crunchyroll.com/simulcastcalendar*
 // @grant GM_getValue
@@ -11,4 +11,41 @@
 // @updateURL https://raw.githubusercontent.com/justinloveless/Remove-CR-Dubs/dist/script.user.js
 // ==/UserScript==
 
-(()=>{"use strict";console.log("Tampermonkey Script Started (using webpack)"),function(){var e=document.createElement("input"),n=document.createTextNode("Show Dubs");e.id="dubs",e.type="checkbox",e.checked=GM_getValue("show_dubs"),e.addEventListener("change",(function(e){GM_setValue("show_dubs",e.currentTarget.checked),location.reload()}));var t=document.createElement("label");if(t.appendChild(e),t.appendChild(n),document.getElementById("filter_toggle_form").appendChild(t),!e.checked)for(var c=document.getElementsByClassName("releases"),d=0;d<c.length;d++)for(var r=c[d].children,l=0;l<r.length;l++)c[d].children[l].innerHTML.includes("Dub)")&&(c[d].children[l].innerHTML="")}()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+
+;// ./src/Remove Dubs.js
+var toggleDubs = function toggleDubs() {
+  var checkbox = document.createElement("input");
+  var textNode = document.createTextNode("Show Dubs");
+  checkbox.id = "dubs";
+  checkbox.type = "checkbox";
+  checkbox.checked = GM_getValue("show_dubs");
+  checkbox.addEventListener('change', function (event) {
+    GM_setValue("show_dubs", event.currentTarget.checked);
+    location.reload();
+  });
+  var label = document.createElement("label");
+  label.appendChild(checkbox);
+  label.appendChild(textNode);
+  var form = document.getElementById("filter_toggle_form");
+  form.appendChild(label);
+  if (!checkbox.checked) {
+    var days = document.getElementsByClassName("releases");
+    for (var i = 0; i < days.length; i++) {
+      var items = days[i].children;
+      for (var j = 0; j < items.length; j++) {
+        if (days[i].children[j].innerHTML.includes("Dub)")) {
+          days[i].children[j].innerHTML = "";
+        }
+      }
+    }
+  }
+};
+
+;// ./src/main.js
+
+console.log('Tampermonkey Script Started (using webpack)');
+toggleDubs();
+/******/ })()
+;
